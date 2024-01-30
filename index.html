@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plasma Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url('https://timmhboy.github.io/v/Plasma-Background.gif') center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        #bigTitle {
+            text-align: center;
+            font-size: 3em;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        #fullscreenButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.5em;
+        }
+        #gamesButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            width: 20%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        #madeBy {
+            text-align: center;
+            font-size: 1em;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        #plasmaImage {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        #homeButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            visibility: visible; /* Initially visible */
+        }
+    </style>
+</head>
+<body>
+    <div id="bigTitle">PLASMA</div>
+    <button id="fullscreenButton" onclick="loadNewWebsite()">Load Different Website</button>
+    <div id="gamesButton" onclick="redirectToGames()">Games</div>
+    <img id="plasmaImage" src="https://timmhboy.github.io/v/R.gif">
+    <div id="madeBy">Made By - <a href="https://sites.google.com/view/echosgames/" target="_blank">Echos Games</a></div>
+
+    <!-- Home button -->
+    <button id="homeButton" onclick="goBackToHome()">🏠</button>
+
+    <script>
+        function loadNewWebsite() {
+            var url = prompt('What site do you want to replace this page with?');
+            var prefix = 'https://';
+            if (url && url.substr(0, prefix.length) !== prefix) {
+                url = prefix + url;
+            }
+
+            if (url) {
+                // Hide the home button before navigating to the new website
+                document.getElementById('homeButton').style.visibility = 'hidden';
+                window.location.replace(url);
+            }
+        }
+
+        function redirectToGames() {
+            var gamesUrl = 'https://greys2121.github.io/games/';
+            // Hide the home button before navigating to the games website
+            document.getElementById('homeButton').style.visibility = 'hidden';
+            window.location.replace(gamesUrl);
+        }
+
+        function goBackToHome() {
+            // Replace the current page with the main site
+            window.location.replace('https://timmhboy.github.io/g/');
+        }
+    </script>
+</body>
+</html>
